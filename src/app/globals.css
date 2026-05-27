@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* Switch dark variant to class-based so it never fires without .dark */
+@variant dark (&:where(.dark, .dark *));
+
+/* ─── Design tokens ──────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  --bg:            oklch(97.5% 0.012 80);
+  --bg-2:          oklch(95% 0.018 75);
+  --card:          oklch(99.5% 0.005 80);
+  --card-warm:     oklch(97% 0.020 75);
+  --ink:           oklch(22% 0.025 50);
+  --ink-2:         oklch(38% 0.020 50);
+  --ink-3:         oklch(55% 0.018 50);
+  --ink-4:         oklch(72% 0.015 60);
+  --line:          oklch(89% 0.015 65);
+  --line-2:        oklch(82% 0.020 60);
+
+  --coral:         oklch(72% 0.16 32);
+  --coral-soft:    oklch(92% 0.055 35);
+  --coral-ink:     oklch(40% 0.13 32);
+  --mint:          oklch(78% 0.11 165);
+  --mint-soft:     oklch(94% 0.045 160);
+  --mint-ink:      oklch(42% 0.10 165);
+  --butter:        oklch(86% 0.13 90);
+  --butter-soft:   oklch(95% 0.06 90);
+  --butter-ink:    oklch(45% 0.12 75);
+  --lavender:      oklch(76% 0.10 290);
+  --lavender-soft: oklch(94% 0.04 290);
+  --lavender-ink:  oklch(42% 0.13 290);
+  --sky:           oklch(78% 0.10 230);
+  --sky-soft:      oklch(94% 0.04 230);
+  --sky-ink:       oklch(42% 0.12 230);
+
+  --shadow-sm: 0 1px 2px rgba(60,40,30,.04);
+  --shadow:    0 1px 2px rgba(60,40,30,.04), 0 8px 24px -12px rgba(60,40,30,.10);
+  --shadow-lg: 0 2px 4px rgba(60,40,30,.04), 0 24px 48px -16px rgba(60,40,30,.14);
+
+  --ff-display: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
+  --ff-ui:      var(--font-geist), "Geist", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+html, body {
+  background-color: oklch(97.5% 0.012 80);
+  color: oklch(22% 0.025 50);
+  font-family: var(--ff-ui);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-2); border-radius: 99px;
+  border: 2px solid transparent; background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ink-4); border: 2px solid transparent; background-clip: content-box; }
+
+/* ─── Typography helpers ─────────────────────────────────── */
+.serif   { font-family: var(--ff-display); font-weight: 400; letter-spacing: -0.01em; }
+.serif-i { font-family: var(--ff-display); font-style: italic; font-weight: 400; }
+
+/* ─── Colour variants ────────────────────────────────────── */
+.cc-coral    { --c: var(--coral);    --c-soft: var(--coral-soft);    --c-ink: var(--coral-ink); }
+.cc-mint     { --c: var(--mint);     --c-soft: var(--mint-soft);     --c-ink: var(--mint-ink); }
+.cc-butter   { --c: var(--butter);   --c-soft: var(--butter-soft);   --c-ink: var(--butter-ink); }
+.cc-lavender { --c: var(--lavender); --c-soft: var(--lavender-soft); --c-ink: var(--lavender-ink); }
+.cc-sky      { --c: var(--sky);      --c-soft: var(--sky-soft);      --c-ink: var(--sky-ink); }
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+.fade-in { animation: fadeIn .25s ease both; }
+
+@keyframes pulse-ring {
+  0%   { transform: scale(.6); opacity: .6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.pulse-dot { position: relative; }
+.pulse-dot::before {
+  content: ""; position: absolute; inset: -2px; border-radius: 99px;
+  border: 2px solid currentColor; opacity: .35;
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+/* sticky-note slight tilts */
+.note-1 { transform: rotate(-0.6deg); }
+.note-2 { transform: rotate(0.4deg); }
+.note-3 { transform: rotate(-0.3deg); }
+.note-4 { transform: rotate(0.7deg); }
+
+/* ─── Card hover effects (CSS-only, safe for Server Components) ── */
+.class-card { transition: transform .15s, box-shadow .15s, border-color .15s; }
+.class-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--c); }
+.add-class-card { transition: border-color .15s, color .15s, background .15s; }
+.add-class-card:hover { border-color: var(--coral) !important; color: var(--coral-ink) !important; background: var(--coral-soft) !important; }
