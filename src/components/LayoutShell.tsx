@@ -8,7 +8,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Restore collapse pref from localStorage (runs client-side only)
+  // Restore collapse pref from localStorage (client-side only)
   useEffect(() => {
     try {
       if (localStorage.getItem("edudash-sidebar") === "collapsed") setCollapsed(true);
@@ -24,7 +24,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div style={{ display: "flex", minHeight: "100vh" }}>
-      {/* Mobile backdrop */}
+      {/* Mobile backdrop — only rendered when open; always visible (not display:none) */}
       {mobileOpen && (
         <div
           onClick={() => setMobileOpen(false)}
@@ -32,9 +32,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
             position: "fixed", inset: 0,
             background: "rgba(0,0,0,.45)",
             zIndex: 40,
-            display: "none", // shown via CSS .mobile-backdrop-active
           }}
-          className="mobile-backdrop"
         />
       )}
 
@@ -61,7 +59,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
           >
             <Menu size={18} />
           </button>
-          <div className="serif" style={{ fontSize: 18, color: "var(--ink)" }}>EduDash</div>
+          <span className="serif" style={{ fontSize: 18, color: "var(--ink)" }}>EduDash</span>
         </div>
 
         {children}
