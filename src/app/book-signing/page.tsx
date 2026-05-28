@@ -50,9 +50,9 @@ export default function BookSigningPage() {
         <p style={{ margin: 0, color: "var(--ink-3)", fontSize: 14 }}>
           {new Date().toLocaleDateString("en-MY", { weekday: "long", day: "numeric", month: "long" })}
         </p>
-        <h1 style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.05, color: "var(--ink)", fontFamily: "var(--ff-display)", fontWeight: 400 }}>
+        <h1 className="serif" style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.02, color: "var(--ink)" }}>
           Book{" "}
-          <span style={{ fontStyle: "italic", color: "var(--coral-ink)" }}>signing</span>
+          <span className="serif-i" style={{ color: "var(--coral-ink)" }}>signing</span>
         </h1>
         <p style={{ margin: "10px 0 0", fontSize: 14, color: "var(--ink-3)", maxWidth: 480 }}>
           Pick a class to start a book collection session. Place RFID books in the basket and track who hasn&apos;t submitted.
@@ -72,13 +72,13 @@ export default function BookSigningPage() {
           <div style={{ width: 72, height: 72, borderRadius: 22, background: "var(--coral-soft)", display: "grid", placeItems: "center", marginBottom: 20 }}>
             <BookCheck size={36} color="var(--coral-ink)" />
           </div>
-          <h2 style={{ margin: 0, fontSize: 22, fontFamily: "var(--ff-display)", fontWeight: 400, color: "var(--ink)" }}>No classes yet</h2>
+          <h2 className="serif" style={{ margin: 0, fontSize: 22, color: "var(--ink)" }}>No classes yet</h2>
           <p style={{ margin: "8px 0 24px", fontSize: 14, color: "var(--ink-3)", maxWidth: 300 }}>
             Create a class first, then add students to use book signing.
           </p>
           <button
             onClick={() => router.push("/classes/new")}
-            style={{ background: "var(--coral)", color: "white", padding: "10px 20px", borderRadius: 12, border: 0, fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "var(--ff-ui)" }}
+            style={{ background: "var(--ink)", color: "white", padding: "10px 20px", borderRadius: 10, border: 0, fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "var(--ff-ui)" }}
           >
             Create a class
           </button>

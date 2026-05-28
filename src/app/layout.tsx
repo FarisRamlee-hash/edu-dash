@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import { Instrument_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import { Sidebar } from "@/components/Sidebar";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const instrumentSerif = Instrument_Serif({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  axes: ["opsz"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-hanken",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${instrumentSerif.variable}`} style={{ colorScheme: "light" }}>
+    <html lang="en" className={`${bricolage.variable} ${hanken.variable}`} style={{ colorScheme: "light" }}>
       <body style={{ background: "var(--bg)", color: "var(--ink)", fontFamily: "var(--ff-ui)", margin: 0 }}>
         <div style={{ display: "flex", minHeight: "100vh" }}>
           <Sidebar />

@@ -134,7 +134,7 @@ export default function BookSigningPage() {
         {!done && (
           <button
             onClick={() => setDone(true)}
-            style={{ background: "var(--coral)", color: "white", padding: "8px 18px", borderRadius: 10, border: 0, fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "var(--ff-ui)", boxShadow: "0 4px 12px -6px var(--coral)" }}
+            style={{ background: "var(--ink)", color: "white", padding: "8px 18px", borderRadius: 10, border: 0, fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "var(--ff-ui)" }}
           >
             Done
           </button>
@@ -185,22 +185,21 @@ export default function BookSigningPage() {
         {!done && (
           <div
             style={{
-              background: "linear-gradient(135deg, var(--coral) 0%, var(--butter) 100%)",
+              background: "var(--ink)",
               borderRadius: 22, padding: 24, position: "relative", overflow: "hidden", cursor: "text",
-              boxShadow: "0 8px 32px -12px var(--coral)",
             }}
             onClick={() => inputRef.current?.focus()}
           >
             {/* Concentric circle decoration */}
-            <svg width="180" height="180" viewBox="0 0 180 180" style={{ position: "absolute", right: -50, top: -50, opacity: .15 }}>
-              <circle cx="90" cy="90" r="80" fill="none" stroke="white" strokeWidth="10" />
-              <circle cx="90" cy="90" r="55" fill="none" stroke="white" strokeWidth="10" />
-              <circle cx="90" cy="90" r="30" fill="none" stroke="white" strokeWidth="10" />
+            <svg width="180" height="180" viewBox="0 0 180 180" style={{ position: "absolute", right: -50, top: -50, opacity: .18, color: "var(--coral)" }}>
+              <circle cx="90" cy="90" r="80" fill="none" stroke="currentColor" strokeWidth="10" />
+              <circle cx="90" cy="90" r="55" fill="none" stroke="currentColor" strokeWidth="10" />
+              <circle cx="90" cy="90" r="30" fill="none" stroke="currentColor" strokeWidth="10" />
             </svg>
 
             <div style={{ position: "relative" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
-                <div style={{ width: 42, height: 42, borderRadius: 14, background: "rgba(255,255,255,.22)", display: "grid", placeItems: "center", color: "white" }}>
+                <div style={{ width: 42, height: 42, borderRadius: 14, background: "var(--coral)", display: "grid", placeItems: "center", color: "var(--ink)" }}>
                   <Wifi size={20} strokeWidth={2} />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -335,7 +334,7 @@ export default function BookSigningPage() {
                 ? <CheckCircle2 size={32} strokeWidth={2} />
                 : <AlertTriangle size={32} strokeWidth={2} />}
             </div>
-            <h3 style={{ margin: "0 0 6px", fontFamily: "var(--ff-display)", fontSize: 28, fontWeight: 400, color: "var(--ink)" }}>
+            <h3 className="serif" style={{ margin: "0 0 6px", fontSize: 28, color: "var(--ink)" }}>
               {missing.length === 0 ? "All books in!" : `${missing.length} book${missing.length > 1 ? "s" : ""} missing`}
             </h3>
             <p style={{ margin: "0 0 20px", fontSize: 14, color: "var(--ink-3)" }}>

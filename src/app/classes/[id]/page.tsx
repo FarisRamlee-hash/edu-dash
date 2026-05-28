@@ -73,9 +73,9 @@ export default function ClassPage() {
       {/* Header */}
       <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", margin: "12px 0 24px" }}>
         <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
-          <div style={{ width: 64, height: 64, borderRadius: 18, background: "var(--c)", color: "white", display: "grid", placeItems: "center", fontFamily: "var(--ff-display)", fontSize: 36, boxShadow: "0 1px 0 rgba(255,255,255,.4) inset, 0 10px 24px -10px var(--c)" }}>{cls.name.charAt(0)}</div>
+          <div style={{ width: 64, height: 64, borderRadius: 18, background: "var(--c-soft)", color: "var(--c-ink)", display: "grid", placeItems: "center", fontFamily: "var(--ff-display)", fontSize: 36, fontWeight: 700, border: "1px solid var(--c)" }}>{cls.name.charAt(0)}</div>
           <div>
-            <h1 style={{ margin: 0, fontSize: 44, lineHeight: 1, color: "var(--ink)", fontFamily: "var(--ff-display)", fontWeight: 400 }}>{cls.name}</h1>
+            <h1 className="serif" style={{ margin: 0, fontSize: 44, lineHeight: 1, color: "var(--ink)" }}>{cls.name}</h1>
             <p style={{ margin: "6px 0 0", fontSize: 14, color: "var(--ink-3)" }}>{cls.grade} · {cls.subject}</p>
           </div>
         </div>
@@ -818,21 +818,21 @@ function BookSigningTab({ classId }: { classId: string }) {
   return (
     <div style={{ display: "grid", gap: 28 }}>
       {/* Start CTA */}
-      <div className="cc-coral" style={{ background: "linear-gradient(135deg, var(--coral) 0%, oklch(76% 0.13 50) 100%)", borderRadius: 22, padding: "22px 24px", position: "relative", overflow: "hidden", boxShadow: "0 1px 0 rgba(255,255,255,.3) inset, 0 16px 36px -16px var(--coral-ink)" }}>
-        <svg width="180" height="180" viewBox="0 0 180 180" style={{ position: "absolute", right: -40, top: -40, opacity: .14 }}>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="white" strokeWidth="14" />
-          <circle cx="90" cy="90" r="50" fill="none" stroke="white" strokeWidth="14" />
+      <div style={{ background: "var(--ink)", borderRadius: 22, padding: "22px 24px", position: "relative", overflow: "hidden" }}>
+        <svg width="180" height="180" viewBox="0 0 180 180" style={{ position: "absolute", right: -40, top: -40, opacity: .18, color: "var(--coral)" }}>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="currentColor" strokeWidth="14" />
+          <circle cx="90" cy="90" r="50" fill="none" stroke="currentColor" strokeWidth="14" />
         </svg>
         <div style={{ display: "flex", alignItems: "center", gap: 18, position: "relative" }}>
-          <div style={{ width: 56, height: 56, borderRadius: 18, background: "rgba(255,255,255,.22)", display: "grid", placeItems: "center", color: "white" }}>
+          <div style={{ width: 56, height: 56, borderRadius: 18, background: "var(--coral)", display: "grid", placeItems: "center", color: "var(--ink)", flexShrink: 0 }}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
           </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: "var(--ff-display)", fontSize: 28, color: "white", lineHeight: 1.1 }}>Start book check</div>
-            <div style={{ fontSize: 14, color: "rgba(255,255,255,.85)", marginTop: 4 }}>{students.length} students · {tagged} RFID tags assigned</div>
+            <div className="serif" style={{ fontSize: 26, color: "white", lineHeight: 1.1 }}>Start book check</div>
+            <div style={{ fontSize: 14, color: "rgba(255,255,255,.7)", marginTop: 4 }}>{students.length} students · {tagged} RFID tags assigned</div>
           </div>
           <button onClick={() => router.push(`/classes/${classId}/book-signing`)} disabled={students.length === 0}
-            style={{ background: "white", color: "var(--coral-ink)", padding: "12px 20px", border: 0, borderRadius: 14, cursor: students.length ? "pointer" : "not-allowed", fontSize: 14, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 8, opacity: students.length ? 1 : .5, boxShadow: "0 6px 14px -8px rgba(0,0,0,.3)" }}>
+            style={{ background: "var(--coral)", color: "var(--ink)", padding: "12px 20px", border: 0, borderRadius: 12, cursor: students.length ? "pointer" : "not-allowed", fontSize: 14, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 8, opacity: students.length ? 1 : .5, flexShrink: 0 }}>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             Start marking
           </button>
@@ -1118,7 +1118,7 @@ function Empty({ text }: { text: string }) {
 }
 
 const inputSm: React.CSSProperties   = { flex: 1, padding: "10px 12px", border: "1px solid var(--line)", borderRadius: 10, background: "var(--card)", color: "var(--ink)", fontSize: 14, outline: "none", fontFamily: "var(--ff-ui)" };
-const btnCoral: React.CSSProperties  = { display: "inline-flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 12, border: 0, cursor: "pointer", background: "var(--coral)", color: "white", fontSize: 14, fontWeight: 600, fontFamily: "var(--ff-ui)" };
+const btnCoral: React.CSSProperties  = { display: "inline-flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, border: 0, cursor: "pointer", background: "var(--ink)", color: "white", fontSize: 14, fontWeight: 700, fontFamily: "var(--ff-ui)" };
 const btnGhost: React.CSSProperties  = { display: "inline-flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 12, border: "1px solid var(--line)", cursor: "pointer", background: "transparent", color: "var(--ink-2)", fontSize: 14, fontWeight: 500, fontFamily: "var(--ff-ui)" };
 const addLinkStyle: React.CSSProperties = { display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 12px", background: "transparent", border: 0, cursor: "pointer", color: "var(--coral-ink)", fontSize: 13.5, fontWeight: 600, borderRadius: 8, fontFamily: "var(--ff-ui)" };
 const iconBtnStyle: React.CSSProperties = { width: 26, height: 26, borderRadius: 8, border: 0, background: "transparent", color: "var(--ink-4)", cursor: "pointer", display: "grid", placeItems: "center" };

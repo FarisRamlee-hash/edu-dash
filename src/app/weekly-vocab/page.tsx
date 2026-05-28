@@ -107,33 +107,34 @@ export default function WeeklyVocabPage() {
         <p style={{ margin: 0, color: "var(--ink-3)", fontSize: 14 }}>
           {new Date().toLocaleDateString("en-MY", { weekday: "long", day: "numeric", month: "long" })}
         </p>
-        <h1 style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.05, color: "var(--ink)", fontFamily: "var(--ff-display)", fontWeight: 400 }}>
-          Weekly <span style={{ fontStyle: "italic", color: "var(--lavender-ink)" }}>vocabulary</span>
+        <h1 className="serif" style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.02, color: "var(--ink)" }}>
+          Weekly <span className="serif-i" style={{ color: "var(--lavender-ink)" }}>vocabulary</span>
         </h1>
       </div>
 
       {/* Form card */}
       <div style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 22, overflow: "hidden", boxShadow: "var(--shadow)", marginBottom: 32 }}>
-        {/* Gradient header */}
-        <div style={{ background: "linear-gradient(135deg, var(--lavender) 0%, var(--sky) 100%)", padding: "24px 28px", position: "relative", overflow: "hidden" }}>
-          <svg width="220" height="80" viewBox="0 0 220 80" style={{ position: "absolute", right: -20, bottom: -10, opacity: .18 }}>
-            <path d="M0 40 Q 30 10, 55 40 T 110 40 T 165 40 T 220 40" fill="none" stroke="white" strokeWidth="12" strokeLinecap="round"/>
-            <path d="M0 60 Q 30 30, 55 60 T 110 60 T 165 60 T 220 60" fill="none" stroke="white" strokeWidth="8" strokeLinecap="round"/>
+        {/* Dark header */}
+        <div style={{ background: "var(--ink)", padding: "20px 24px", position: "relative", overflow: "hidden" }}>
+          <svg width="200" height="200" viewBox="0 0 200 200" style={{ position: "absolute", right: -40, top: -60, opacity: .8, pointerEvents: "none" }}>
+            <path d="M 20 90 Q 70 40, 120 90 T 220 90" stroke="var(--coral)" strokeWidth="3" fill="none" strokeLinecap="round" opacity=".6" />
+            <path d="M 20 120 Q 70 70, 120 120 T 220 120" stroke="var(--coral)" strokeWidth="3" fill="none" strokeLinecap="round" opacity=".4" />
+            <circle cx="170" cy="60" r="6" fill="var(--coral)" />
           </svg>
-          <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: "rgba(255,255,255,.22)", display: "grid", placeItems: "center", color: "white", flexShrink: 0 }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--coral)", display: "grid", placeItems: "center", color: "var(--ink)", flexShrink: 0 }}>
                 <BookOpen size={20} strokeWidth={2} />
               </div>
               <div>
-                <div style={{ fontFamily: "var(--ff-display)", fontSize: 22, color: "white", lineHeight: 1.1 }}>New Vocab Sheet</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,.85)", marginTop: 3 }}>Fill in 5 words &amp; 5 sentences</div>
+                <div className="serif" style={{ fontSize: 24, color: "white", lineHeight: 1.1 }}>New vocab sheet</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,.7)", marginTop: 3 }}>5 words &amp; 5 sentences</div>
               </div>
             </div>
             {/* AI Generate button */}
             <button
               onClick={() => setShowAiBox(v => !v)}
-              style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 10, border: 0, cursor: "pointer", background: "rgba(255,255,255,.22)", color: "white", fontSize: 13, fontWeight: 600, backdropFilter: "blur(6px)", fontFamily: "var(--ff-ui)" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,.15)", cursor: "pointer", background: "rgba(255,255,255,.1)", color: "white", fontSize: 13, fontWeight: 600, fontFamily: "var(--ff-ui)", flexShrink: 0 }}
             >
               <Sparkles size={14} /> Generate with AI
             </button>
@@ -221,7 +222,7 @@ export default function WeeklyVocabPage() {
       {/* History */}
       {history.length > 0 && (
         <div>
-          <h2 style={{ margin: "0 0 14px", fontSize: 18, fontFamily: "var(--ff-display)", fontWeight: 400, color: "var(--ink)" }}>Past Sheets</h2>
+          <h2 className="serif" style={{ margin: "0 0 14px", fontSize: 18, color: "var(--ink)" }}>Past Sheets</h2>
           <div style={{ display: "grid", gap: 10 }}>
             {history.map(entry => (
               <div key={entry.id} style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 16, padding: "14px 18px", display: "flex", alignItems: "center", gap: 14 }}>

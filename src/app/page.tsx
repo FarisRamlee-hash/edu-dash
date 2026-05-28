@@ -60,17 +60,17 @@ export default async function DashboardPage() {
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 28 }}>
         <div>
           <p style={{ margin: 0, color: "var(--ink-3)", fontSize: 14 }}>{todayLabel()}</p>
-          <h1 style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.05, color: "var(--ink)", fontFamily: "var(--ff-display)", fontWeight: 400 }}>
+          <h1 className="serif" style={{ margin: "6px 0 0", fontSize: 52, lineHeight: 1.02, color: "var(--ink)" }}>
             {greeting()},{" "}
-            <span style={{ fontStyle: "italic", color: "var(--coral-ink)" }}>Cikgu</span>
+            <span className="serif-i" style={{ color: "var(--coral-ink)" }}>Cikgu</span>
             <SquiggleUnder />
           </h1>
         </div>
         <Link href="/classes/new" style={{
           display: "inline-flex", alignItems: "center", gap: 8,
-          padding: "10px 16px", borderRadius: 12, textDecoration: "none",
-          background: "var(--coral)", color: "white", fontSize: 14, fontWeight: 600,
-          boxShadow: "0 1px 0 rgba(255,255,255,.25) inset, 0 6px 16px -8px var(--coral)",
+          padding: "10px 16px", borderRadius: 10, textDecoration: "none",
+          background: "var(--ink)", color: "white", fontSize: 14, fontWeight: 700,
+          transition: "background .15s",
         }}>
           <Plus size={16} strokeWidth={2.2} /> New class
         </Link>
@@ -99,7 +99,7 @@ export default async function DashboardPage() {
         return (
           <div style={{ marginBottom: 36 }}>
             <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 12 }}>
-              <h2 style={{ margin: 0, fontSize: 20, fontFamily: "var(--ff-display)", fontWeight: 400, color: "var(--ink)" }}>This week</h2>
+              <h2 className="serif" style={{ margin: 0, fontSize: 20, color: "var(--ink)" }}>This week</h2>
               <span style={{ fontSize: 13, color: "var(--ink-3)" }}>{upcoming.length} due</span>
             </div>
             <div style={{ display: "grid", gap: 8 }}>
@@ -121,7 +121,7 @@ export default async function DashboardPage() {
       {/* Section header */}
       {allClasses.length > 0 && (
         <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 16 }}>
-          <h2 style={{ margin: 0, fontSize: 24, fontFamily: "var(--ff-display)", fontWeight: 400, color: "var(--ink)" }}>Your classes</h2>
+          <h2 className="serif" style={{ margin: 0, fontSize: 24, color: "var(--ink)" }}>Your classes</h2>
           <span style={{ fontSize: 13, color: "var(--ink-3)" }}>{allClasses.length} active</span>
         </div>
       )}
@@ -148,10 +148,10 @@ export default async function DashboardPage() {
                 <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 14 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <div style={{
-                      width: 44, height: 44, borderRadius: 14, background: "var(--c)", color: "white",
+                      width: 44, height: 44, borderRadius: 12, background: "var(--c-soft)", color: "var(--c-ink)",
                       display: "grid", placeItems: "center",
-                      fontFamily: "var(--ff-display)", fontSize: 22,
-                      boxShadow: "0 1px 0 rgba(255,255,255,.4) inset, 0 6px 14px -8px var(--c)",
+                      fontFamily: "var(--ff-display)", fontSize: 22, fontWeight: 700,
+                      border: "1px solid var(--c)",
                     }}>{cls.name.charAt(0)}</div>
                     <div>
                       <div style={{ fontSize: 16, fontWeight: 600, color: "var(--ink)" }}>{cls.name}</div>
@@ -268,13 +268,12 @@ function EmptyState() {
           <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
         </svg>
       </div>
-      <h2 style={{ margin: 0, fontSize: 22, fontFamily: "var(--ff-display)", fontWeight: 400, color: "var(--ink)" }}>No classes yet</h2>
+      <h2 className="serif" style={{ margin: 0, fontSize: 22, color: "var(--ink)" }}>No classes yet</h2>
       <p style={{ margin: "8px 0 24px", fontSize: 14, color: "var(--ink-3)", maxWidth: 300 }}>Add your first class to start tracking chapters, homework, and notes.</p>
       <Link href="/classes/new" style={{
         display: "inline-flex", alignItems: "center", gap: 8,
-        padding: "10px 20px", borderRadius: 12, textDecoration: "none",
-        background: "var(--coral)", color: "white", fontSize: 14, fontWeight: 600,
-        boxShadow: "0 6px 16px -8px var(--coral)",
+        padding: "10px 20px", borderRadius: 10, textDecoration: "none",
+        background: "var(--ink)", color: "white", fontSize: 14, fontWeight: 700,
       }}>
         <Plus size={16} /> Create your first class
       </Link>

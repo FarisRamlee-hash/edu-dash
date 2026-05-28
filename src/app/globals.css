@@ -3,49 +3,59 @@
 /* Switch dark variant to class-based so it never fires without .dark */
 @variant dark (&:where(.dark, .dark *));
 
-/* ─── Design tokens ──────────────────────────────────────── */
+/* ─── Design tokens — GoDaddy-inspired ─────────────────── */
 :root {
   color-scheme: light;
 
-  --bg:            oklch(97.5% 0.012 80);
-  --bg-2:          oklch(95% 0.018 75);
-  --card:          oklch(99.5% 0.005 80);
-  --card-warm:     oklch(97% 0.020 75);
-  --ink:           oklch(22% 0.025 50);
-  --ink-2:         oklch(38% 0.020 50);
-  --ink-3:         oklch(55% 0.018 50);
-  --ink-4:         oklch(72% 0.015 60);
-  --line:          oklch(89% 0.015 65);
-  --line-2:        oklch(82% 0.020 60);
+  /* Neutral base */
+  --bg:            #ffffff;
+  --bg-2:          #f4f4f4;
+  --card:          #ffffff;
+  --card-warm:     #f7f7f8;
+  --ink:           #111111;
+  --ink-2:         #2c2c2c;
+  --ink-3:         #545454;
+  --ink-4:         #888888;
+  --line:          #e4e7e9;
+  --line-2:        #cfd3d6;
 
-  --coral:         oklch(72% 0.16 32);
-  --coral-soft:    oklch(92% 0.055 35);
-  --coral-ink:     oklch(40% 0.13 32);
-  --mint:          oklch(78% 0.11 165);
-  --mint-soft:     oklch(94% 0.045 160);
-  --mint-ink:      oklch(42% 0.10 165);
-  --butter:        oklch(86% 0.13 90);
-  --butter-soft:   oklch(95% 0.06 90);
-  --butter-ink:    oklch(45% 0.12 75);
-  --lavender:      oklch(76% 0.10 290);
-  --lavender-soft: oklch(94% 0.04 290);
-  --lavender-ink:  oklch(42% 0.13 290);
-  --sky:           oklch(78% 0.10 230);
-  --sky-soft:      oklch(94% 0.04 230);
-  --sky-ink:       oklch(42% 0.12 230);
+  /* Primary — bright teal */
+  --coral:         #1bdbdb;
+  --coral-soft:    #d9f7f7;
+  --coral-ink:     #06606a;
 
-  --shadow-sm: 0 1px 2px rgba(60,40,30,.04);
-  --shadow:    0 1px 2px rgba(60,40,30,.04), 0 8px 24px -12px rgba(60,40,30,.10);
-  --shadow-lg: 0 2px 4px rgba(60,40,30,.04), 0 24px 48px -16px rgba(60,40,30,.14);
+  /* Accent — emerald */
+  --mint:          #00845a;
+  --mint-soft:     #d6efe5;
+  --mint-ink:      #00543a;
 
-  --ff-display: var(--font-instrument-serif), "Instrument Serif", Georgia, serif;
-  --ff-ui:      var(--font-geist), "Geist", ui-sans-serif, system-ui, sans-serif;
+  /* Accent — sun */
+  --butter:        #ffd400;
+  --butter-soft:   #fff4b8;
+  --butter-ink:    #5a4a00;
+
+  /* Accent — magenta */
+  --lavender:      #d54289;
+  --lavender-soft: #fbe1ee;
+  --lavender-ink:  #7a1f4a;
+
+  /* Accent — cobalt */
+  --sky:           #1b6df0;
+  --sky-soft:      #dbeafe;
+  --sky-ink:       #0a3f99;
+
+  --shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow:        0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -12px rgba(0, 0, 0, 0.10);
+  --shadow-lg:     0 2px 4px rgba(0, 0, 0, 0.04), 0 24px 48px -16px rgba(0, 0, 0, 0.16);
+
+  --ff-display: var(--font-bricolage), "Bricolage Grotesque", "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --ff-ui:      var(--font-hanken), "Hanken Grotesk", "Geist", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ─── Base ───────────────────────────────────────────────── */
 html, body {
-  background-color: oklch(97.5% 0.012 80);
-  color: oklch(22% 0.025 50);
+  background-color: #ffffff;
+  color: #111111;
   font-family: var(--ff-ui);
 }
 
@@ -61,11 +71,13 @@ html, body {
   background: var(--line-2); border-radius: 99px;
   border: 2px solid transparent; background-clip: content-box;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--ink-4); border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-4); border: 2px solid transparent; background-clip: content-box;
+}
 
 /* ─── Typography helpers ─────────────────────────────────── */
-.serif   { font-family: var(--ff-display); font-weight: 400; letter-spacing: -0.01em; }
-.serif-i { font-family: var(--ff-display); font-style: italic; font-weight: 400; }
+.serif   { font-family: var(--ff-display); font-weight: 700; letter-spacing: -0.025em; }
+.serif-i { font-family: var(--ff-display); font-style: italic; font-weight: 700; letter-spacing: -0.025em; }
 
 /* ─── Colour variants ────────────────────────────────────── */
 .cc-coral    { --c: var(--coral);    --c-soft: var(--coral-soft);    --c-ink: var(--coral-ink); }
@@ -74,9 +86,51 @@ html, body {
 .cc-lavender { --c: var(--lavender); --c-soft: var(--lavender-soft); --c-ink: var(--lavender-ink); }
 .cc-sky      { --c: var(--sky);      --c-soft: var(--sky-soft);      --c-ink: var(--sky-ink); }
 
+/* ─── Reusable button classes ────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; line-height: 1;
+  border: 1px solid transparent; cursor: pointer;
+  white-space: nowrap; font-family: inherit;
+  transition: transform .12s ease, background .15s, box-shadow .15s, border-color .15s;
+}
+.btn:active { transform: translateY(0.5px); }
+.btn-primary { background: var(--ink); color: #ffffff; }
+.btn-primary:hover { background: #000000; }
+.btn-coral   { background: var(--ink); color: #ffffff; }
+.btn-coral:hover { background: #000000; }
+.btn-teal    { background: var(--coral); color: var(--ink); }
+.btn-teal:hover { background: #15c5c5; }
+.btn-ghost   { background: transparent; color: var(--ink-2); border-color: var(--line); }
+.btn-ghost:hover { background: var(--card-warm); border-color: var(--line-2); }
+
+/* ─── Input ──────────────────────────────────────────────── */
+.input {
+  width: 100%; padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--card); color: var(--ink);
+  font-size: 14px; outline: none; font-family: inherit;
+  transition: border-color .12s, box-shadow .12s;
+}
+.input:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(27, 219, 219, 0.2);
+}
+
+/* ─── Chip ───────────────────────────────────────────────── */
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 99px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.01em;
+}
+
 /* ─── Animations ─────────────────────────────────────────── */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
-.fade-in { animation: fadeIn .25s ease both; }
+@keyframes fadeIn { from { transform: translateY(6px); } to { transform: none; } }
+.fade-in { animation: fadeIn .28s ease both; }
+
+@keyframes fadeInSoft { from { opacity: 0; } to { opacity: 1; } }
+.fade-in-soft { animation: fadeInSoft .35s ease both; }
 
 @keyframes pulse-ring {
   0%   { transform: scale(.6); opacity: .6; }
@@ -95,7 +149,7 @@ html, body {
 .note-3 { transform: rotate(-0.3deg); }
 .note-4 { transform: rotate(0.7deg); }
 
-/* ─── Card hover effects (CSS-only, safe for Server Components) ── */
+/* ─── Card hover effects ─────────────────────────────────── */
 .class-card { transition: transform .15s, box-shadow .15s, border-color .15s; }
 .class-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--c); }
 .add-class-card { transition: border-color .15s, color .15s, background .15s; }

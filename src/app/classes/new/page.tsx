@@ -39,24 +39,26 @@ export default function NewClassPage() {
         <div style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 22, overflow: "hidden", boxShadow: "var(--shadow)" }}>
           {/* Header */}
           <div style={{
-            background: "linear-gradient(135deg, var(--coral) 0%, var(--butter) 100%)",
-            padding: "24px 28px", position: "relative", overflow: "hidden",
+            background: "var(--ink)",
+            padding: "22px 28px", position: "relative", overflow: "hidden",
           }}>
-            <svg width="160" height="160" viewBox="0 0 160 160" style={{ position: "absolute", right: -40, top: -40, opacity: .15 }}>
-              <circle cx="80" cy="80" r="70" fill="none" stroke="white" strokeWidth="12" />
-              <circle cx="80" cy="80" r="44" fill="none" stroke="white" strokeWidth="12" />
+            <svg width="160" height="160" viewBox="0 0 160 160" style={{ position: "absolute", right: -40, top: -40, opacity: .18, color: "var(--coral)" }}>
+              <circle cx="80" cy="80" r="70" fill="none" stroke="currentColor" strokeWidth="12" />
+              <circle cx="80" cy="80" r="44" fill="none" stroke="currentColor" strokeWidth="12" />
             </svg>
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 14 }}>
               <div style={{
-                width: 44, height: 44, borderRadius: 14, background: "rgba(255,255,255,.22)",
-                display: "grid", placeItems: "center", color: "white", marginBottom: 12,
+                width: 44, height: 44, borderRadius: 12, background: "var(--coral)",
+                display: "grid", placeItems: "center", color: "var(--ink)", flexShrink: 0,
               }}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
                 </svg>
               </div>
-              <div style={{ fontFamily: "var(--ff-display)", fontSize: 28, color: "white", lineHeight: 1.1 }}>New class</div>
-              <div style={{ fontSize: 13, color: "rgba(255,255,255,.85)", marginTop: 4 }}>Fill in the details to get started</div>
+              <div>
+                <div className="serif" style={{ fontSize: 26, color: "white", lineHeight: 1.1 }}>New class</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,.7)", marginTop: 3 }}>Fill in the details to get started</div>
+              </div>
             </div>
           </div>
 
@@ -113,9 +115,9 @@ export default function NewClassPage() {
               disabled={saving || !form.name || !form.grade}
               style={{
                 width: "100%", padding: "12px 0", borderRadius: 12, border: 0, cursor: "pointer",
-                background: "var(--coral)", color: "white", fontSize: 15, fontWeight: 700,
+                background: "var(--ink)", color: "white", fontSize: 15, fontWeight: 700,
                 opacity: saving || !form.name || !form.grade ? .5 : 1,
-                boxShadow: "0 6px 16px -8px var(--coral)", transition: "opacity .15s",
+                transition: "opacity .15s",
                 marginTop: 4,
               }}
             >

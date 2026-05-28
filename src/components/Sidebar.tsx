@@ -47,19 +47,19 @@ export function Sidebar() {
       <style>{navLinkHover}</style>
 
       {/* Logo */}
-      <Link href="/" style={{ display: "flex", alignItems: "center", gap: 11, padding: "6px 6px 20px", textDecoration: "none" }}>
+      <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, padding: "6px 6px 22px", textDecoration: "none" }}>
         <div style={{
-          width: 38, height: 38, borderRadius: 12, flexShrink: 0,
-          background: "linear-gradient(135deg, var(--coral) 0%, var(--butter) 100%)",
-          color: "white", display: "grid", placeItems: "center",
-          boxShadow: "0 1px 0 rgba(255,255,255,.4) inset, 0 6px 14px -8px var(--coral)",
+          width: 38, height: 38, borderRadius: 10, flexShrink: 0,
+          background: "var(--ink)", color: "var(--coral)",
+          display: "grid", placeItems: "center",
         }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          {/* cap / graduation icon */}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
           </svg>
         </div>
         <div>
-          <div style={{ fontFamily: "var(--ff-display)", fontSize: 21, lineHeight: 1, color: "var(--ink)" }}>EduDash</div>
+          <div className="serif" style={{ fontSize: 22, lineHeight: 1, color: "var(--ink)" }}>EduDash</div>
           <div style={{ fontSize: 11, color: "var(--ink-3)", marginTop: 2 }}>Teacher toolkit</div>
         </div>
       </Link>

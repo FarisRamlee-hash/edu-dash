@@ -56,7 +56,7 @@ export default function SettingsPage() {
         <p style={{ margin: 0, color: "var(--ink-3)", fontSize: 14 }}>
           {new Date().toLocaleDateString("en-MY", { weekday: "long", day: "numeric", month: "long" })}
         </p>
-        <h1 style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.05, color: "var(--ink)", fontFamily: "var(--ff-display)", fontWeight: 400 }}>
+        <h1 className="serif" style={{ margin: "6px 0 0", fontSize: 48, lineHeight: 1.02, color: "var(--ink)" }}>
           Settings
         </h1>
       </div>
@@ -65,18 +65,18 @@ export default function SettingsPage() {
 
         {/* Google Account card */}
         <div style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 22, overflow: "hidden", boxShadow: "var(--shadow)" }}>
-          <div style={{ background: "linear-gradient(135deg, var(--lavender) 0%, var(--sky) 100%)", padding: "22px 26px", position: "relative", overflow: "hidden" }}>
-            <svg width="140" height="140" viewBox="0 0 140 140" style={{ position: "absolute", right: -30, top: -30, opacity: .15 }}>
-              <circle cx="70" cy="70" r="60" fill="none" stroke="white" strokeWidth="10"/>
-              <circle cx="70" cy="70" r="35" fill="none" stroke="white" strokeWidth="10"/>
+          <div style={{ background: "var(--ink)", padding: "22px 26px", position: "relative", overflow: "hidden" }}>
+            <svg width="140" height="140" viewBox="0 0 140 140" style={{ position: "absolute", right: -30, top: -30, opacity: .18, color: "var(--coral)" }}>
+              <circle cx="70" cy="70" r="60" fill="none" stroke="currentColor" strokeWidth="10"/>
+              <circle cx="70" cy="70" r="35" fill="none" stroke="currentColor" strokeWidth="10"/>
             </svg>
             <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 14 }}>
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: "rgba(255,255,255,.22)", display: "grid", placeItems: "center", color: "white", flexShrink: 0 }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--coral)", display: "grid", placeItems: "center", color: "var(--ink)", flexShrink: 0 }}>
                 <Link2 size={20} strokeWidth={2} />
               </div>
               <div>
-                <div style={{ fontFamily: "var(--ff-display)", fontSize: 20, color: "white", lineHeight: 1.1 }}>Google Account</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,.85)", marginTop: 3 }}>Connect for Drive uploads &amp; Classroom posts</div>
+                <div className="serif" style={{ fontSize: 20, color: "white", lineHeight: 1.1 }}>Google Account</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,.7)", marginTop: 3 }}>Connect for Drive uploads &amp; Classroom posts</div>
               </div>
               {settings.connected && (
                 <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 99, background: "rgba(255,255,255,.22)", color: "white", fontSize: 12.5, fontWeight: 600 }}>
@@ -182,14 +182,18 @@ export default function SettingsPage() {
 
         {/* AI / Vocab Generator card */}
         <div style={{ background: "var(--card)", border: "1px solid var(--line)", borderRadius: 22, overflow: "hidden", boxShadow: "var(--shadow)" }}>
-          <div style={{ background: "linear-gradient(135deg, var(--lavender) 0%, var(--butter) 100%)", padding: "22px 26px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <div style={{ width: 44, height: 44, borderRadius: 14, background: "rgba(255,255,255,.22)", display: "grid", placeItems: "center", color: "white", flexShrink: 0 }}>
+          <div style={{ background: "var(--ink)", padding: "22px 26px", position: "relative", overflow: "hidden" }}>
+            <svg width="120" height="120" viewBox="0 0 120 120" style={{ position: "absolute", right: -20, top: -20, opacity: .18, color: "var(--lavender)" }}>
+              <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" strokeWidth="8"/>
+              <circle cx="60" cy="60" r="28" fill="none" stroke="currentColor" strokeWidth="8"/>
+            </svg>
+            <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 14 }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: "var(--lavender)", display: "grid", placeItems: "center", color: "white", flexShrink: 0 }}>
                 <Sparkles size={20} strokeWidth={2} />
               </div>
               <div>
-                <div style={{ fontFamily: "var(--ff-display)", fontSize: 20, color: "white", lineHeight: 1.1 }}>AI Vocab Generator</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,.85)", marginTop: 3 }}>Powered by Claude — generates words &amp; sentences automatically</div>
+                <div className="serif" style={{ fontSize: 20, color: "white", lineHeight: 1.1 }}>AI Vocab Generator</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,.7)", marginTop: 3 }}>Powered by Claude — generates words &amp; sentences automatically</div>
               </div>
             </div>
           </div>
@@ -242,7 +246,7 @@ export default function SettingsPage() {
           </div>
         )}
 
-        <button onClick={saveSettings} disabled={saving} style={{ width: "100%", padding: "13px 0", borderRadius: 12, border: 0, cursor: saving ? "default" : "pointer", background: "var(--coral)", color: "white", fontSize: 15, fontWeight: 700, opacity: saving ? .6 : 1, boxShadow: "0 6px 16px -8px var(--coral)", transition: "opacity .15s", fontFamily: "var(--ff-ui)" }}>
+        <button onClick={saveSettings} disabled={saving} style={{ width: "100%", padding: "13px 0", borderRadius: 10, border: 0, cursor: saving ? "default" : "pointer", background: "var(--ink)", color: "white", fontSize: 15, fontWeight: 700, opacity: saving ? .6 : 1, transition: "opacity .15s", fontFamily: "var(--ff-ui)" }}>
           {saving ? "Saving…" : "Save Settings"}
         </button>
       </div>
