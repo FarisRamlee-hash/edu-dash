@@ -149,6 +149,71 @@ html, body {
 .note-3 { transform: rotate(-0.3deg); }
 .note-4 { transform: rotate(0.7deg); }
 
+/* ─── Sidebar layout ─────────────────────────────────────── */
+
+/* Desktop: mobile panel invisible, toggle button visible */
+.sidebar-mobile   { display: none; }
+.sidebar-toggle-btn { display: flex; }
+
+/* Mobile top bar: hidden on desktop */
+.mobile-topbar {
+  display: none;
+  align-items: center; gap: 12px;
+  padding: 12px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 30;
+}
+
+/* Mobile backdrop */
+.mobile-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 40;
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop sidebar + spacer; show mobile overlay panel */
+  .sidebar-desktop  { display: none !important; }
+  .sidebar-spacer   { display: none !important; }
+  .sidebar-mobile   { display: block; }
+  .sidebar-toggle-btn { display: none !important; }
+
+  /* Show top bar */
+  .mobile-topbar { display: flex; }
+}
+
+/* ─── Responsive page padding ────────────────────────────── */
+.page-outer {
+  padding: 32px 40px 60px;
+  max-width: 1100px;
+}
+@media (max-width: 768px) {
+  .page-outer { padding: 16px 16px 48px; }
+}
+
+/* ─── Responsive stat cards ──────────────────────────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 32px;
+}
+@media (max-width: 640px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─── Responsive tabs (class detail) ────────────────────── */
+.tabs-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs-scroll::-webkit-scrollbar { display: none; }
+
 /* ─── Card hover effects ─────────────────────────────────── */
 .class-card { transition: transform .15s, box-shadow .15s, border-color .15s; }
 .class-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--c); }

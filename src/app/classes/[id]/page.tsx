@@ -63,7 +63,7 @@ export default function ClassPage() {
   };
 
   return (
-    <div className={`fade-in cc-${color}`} style={{ padding: "24px 40px 60px", maxWidth: 960 }}>
+    <div className={`fade-in page-outer cc-${color}`} style={{ maxWidth: 960 }}>
       {/* Back */}
       <button onClick={() => router.push("/")} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 10px", marginLeft: -10, background: "transparent", border: 0, cursor: "pointer", color: "var(--ink-3)", fontSize: 13, borderRadius: 8 }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>

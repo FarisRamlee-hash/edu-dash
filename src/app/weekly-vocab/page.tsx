@@ -101,7 +101,7 @@ export default function WeeklyVocabPage() {
   }
 
   return (
-    <div className="fade-in" style={{ padding: "32px 40px 60px", maxWidth: 760 }}>
+    <div className="fade-in page-outer" style={{ maxWidth: 760 }}>
       {/* Page header */}
       <div style={{ marginBottom: 28 }}>
         <p style={{ margin: 0, color: "var(--ink-3)", fontSize: 14 }}>

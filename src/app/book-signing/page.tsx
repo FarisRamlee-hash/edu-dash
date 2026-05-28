@@ -44,7 +44,7 @@ export default function BookSigningPage() {
   }, []);
 
   return (
-    <div className="fade-in" style={{ padding: "32px 40px 60px", maxWidth: 900 }}>
+    <div className="fade-in page-outer" style={{ maxWidth: 900 }}>
       {/* Header */}
       <div style={{ marginBottom: 32 }}>
         <p style={{ margin: 0, color: "var(--ink-3)", fontSize: 14 }}>

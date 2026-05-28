@@ -55,7 +55,7 @@ export default async function DashboardPage() {
     n + cls.homework.filter(h => h.status === "pending").length, 0);
 
   return (
-    <div className="fade-in" style={{ padding: "32px 40px 60px", maxWidth: 1100 }}>
+    <div className="fade-in page-outer">
       {/* Header */}
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 28 }}>
         <div>
@@ -78,7 +78,7 @@ export default async function DashboardPage() {
 
       {/* Stat cards */}
       {allClasses.length > 0 && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14, marginBottom: 32 }}>
+        <div className="stat-grid">
           <StatCard label="Classes" value={allClasses.length} color="lavender" icon="bookmark" />
           <StatCard label="Pending homework" value={totalHW} color="butter" icon="clip" />
           <StatCard label="Overdue" value={totalOverdue} color={totalOverdue > 0 ? "coral" : "mint"} icon="alert" />
